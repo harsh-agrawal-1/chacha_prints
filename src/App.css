@@ -2,9 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-}
 
 .App-header {
   background-color: #282c34;
@@ -17,6 +14,27 @@
   color: white;
 }
 
+.jumbotron{
+  background-color:#2E2D88;
+  color:white;
+}
+/* Adds borders for tabs */
+.tab-content {
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+}
+.nav-tabs {
+  margin-bottom: 0;
+}
+
 .App-link {
   color: #09d3ac;
+}
+
+.heading{
+  font-family: 'Alatsi', sans-serif !important;
+  font: weight 900 !important;
+  font-size: x-large;
 }
