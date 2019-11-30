@@ -1,18 +1,25 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Header() {
   return (
-    <div className="container">
-      <div className="jumbotron">
-        <img
-          src="logo.png"
-          alt="(OM)"
-          className="img-responsive img-thumbnail pl-xs-5"
-        />
-        <span className="heading col-xs-offset-2 col-sm-offset-3 col-md-offset-4 col-lg-offset-4 col-xl-offset-4">
-          CHACHA PRINTS
-        </span>
+    <Link to="/">
+      <div className="container">
+        <div className="jumbotron">
+          <div className="row">
+            <div className="col-5">
+              <img
+                src="logo.png"
+                alt="(OM)"
+                className="img-fluid img-thumbnail img-circle"
+              />
+            </div>
+            <div className="col-offset-6 heading text-">
+              CHACHA PRINTS
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </Link>
   )
 }
