@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 export default class ProductDetails extends Component {
   render() {
+    const product = this.props.location.state.data
     return (
       <div class="super_container">
         {/* {'details here for ' +
@@ -44,9 +45,7 @@ export default class ProductDetails extends Component {
                 <div class="image_selected">
                   <img
                     src={
-                      this.props
-                        .location.state
-                        .data.imgUrl
+                      product.imgUrl
                     }
                     alt=""
                   />
@@ -56,9 +55,7 @@ export default class ProductDetails extends Component {
                 <div class="product_description">
                   <div class="product_name">
                     {
-                      this.props
-                        .location.state
-                        .data.name
+                      product.name
                     }
                   </div>
                   <div class="product-rating">
@@ -75,7 +72,7 @@ export default class ProductDetails extends Component {
                   <div>
                     {' '}
                     <span class="product_price">
-                      ₹ 29,000
+                    ₹ {product.cost}
                     </span>{' '}
                     <strike class="product_discount">
                       {' '}
