@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 export default class CategoryCard extends Component {
   render() {
@@ -23,12 +24,32 @@ export default class CategoryCard extends Component {
             <p class="card-text">
               {this.props.data.desc}
             </p>
-            <a
-              href="#"
-              class="btn btn-primary"
-            >
-              Go somewhere
-            </a>
+
+            {this.props.type ===
+            'categories' ? (
+              <Link
+                to={
+                  '/' +
+                  this.props.data.link
+                }
+                class="btn btn-primary"
+              >
+                Explore
+              </Link>
+            ) : (
+              <Link
+                to={{
+                  pathname: '/details',
+                  state: {
+                    data: this.props
+                      .data,
+                  },
+                }}
+                class="btn btn-primary"
+              >
+                Details
+              </Link>
+            )}
           </div>
         </div>
       </div>
