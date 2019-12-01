@@ -12,6 +12,7 @@ import LogIn from './components/log_in'
 import SignUp from './components/sign_up'
 import Cart from './components/cart'
 import UserProfile from './components/user_profile'
+import ContactUs from './components/contact'
 
 function App() {
   return (
@@ -41,9 +42,14 @@ function App() {
           component={Cart}
         ></Route>
         <Route
+          path="/contact"
+          component={ContactUs}
+        ></Route>
+        <Route
           component={ProductCategories}
         ></Route>
       </Switch>
+      <hr />
       <Footer />
     </React.Fragment>
   )

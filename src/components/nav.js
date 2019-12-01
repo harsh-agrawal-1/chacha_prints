@@ -39,7 +39,10 @@ export default function Navbar() {
             type="button"
             className="btn btn-primary pull-right mx-auto"
           >
-            <span className="glyphicon glyphicon-shopping-cart"></span>
+            <i
+              class="fa fa-shopping-cart"
+              aria-hidden="true"
+            ></i>
             &ensp; MY CART
           </button>
         </Link>

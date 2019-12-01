@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class CategoryCard extends Component {
   render() {
     return (
-      <div className="col-12 col-sm-8 col-md-6 col-lg-4">
+      <div className="col-12 col-sm-8 col-md-6 col-lg-4 mx-auto">
         <div
           className="card text-center"
           style={{

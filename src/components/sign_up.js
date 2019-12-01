@@ -1,74 +1,77 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import '../App.css'
 
 export default class SignUp extends Component {
   render() {
     return (
       <div class="container">
-        <div class="d-flex justify-content-center h-100">
-          <div class="card">
-            <div class="card-header">
-              <h3>Sign In</h3>
-              <div class="d-flex justify-content-end social_icon">
-                <span>
-                  <i class="fab fa-facebook-square"></i>
-                </span>
-                <span>
-                  <i class="fab fa-google-plus-square"></i>
-                </span>
-                <span>
-                  <i class="fab fa-twitter-square"></i>
-                </span>
-              </div>
-            </div>
-            <div class="card-body">
-              <form>
-                <div class="input-group form-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">
-                      <i class="fas fa-user"></i>
-                    </span>
+        <div class="row">
+          <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card card-signin my-5">
+              <div class="card-body">
+                <h5 class="card-title text-center">
+                  Sign Up
+                </h5>
+                <form class="form-signin">
+                  <div class="form-label-group">
+                    <input
+                      type="tel"
+                      id="inputTel"
+                      class="form-control"
+                      placeholder="Mobile Number"
+                      pattern="[0-9]{11}"
+                      required
+                      autofocus
+                    />
+                    <label for="inputTel">
+                      Mobile Number
+                    </label>
                   </div>
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="username"
-                  />
-                </div>
-                <div class="input-group form-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">
-                      <i class="fas fa-key"></i>
-                    </span>
+
+                  <div class="form-label-group">
+                    <input
+                      type="password"
+                      id="inputPassword"
+                      class="form-control"
+                      placeholder="Password"
+                      required
+                    />
+                    <label for="inputPassword">
+                      Password
+                    </label>
                   </div>
-                  <input
-                    type="password"
-                    class="form-control"
-                    placeholder="password"
-                  />
-                </div>
-                <div class="row align-items-center remember">
-                  <input type="checkbox" />
-                  Remember Me
-                </div>
-                <div class="form-group">
-                  <input
+                  <div class="form-label-group">
+                    <input
+                      type="text"
+                      id="address"
+                      class="form-control"
+                      placeholder="Address"
+                      required
+                      autofocus
+                    />
+                    <label for="address">
+                      Address
+                    </label>
+                  </div>
+                  <button
+                    class="btn btn-lg btn-primary btn-block text-uppercase"
                     type="submit"
-                    value="Login"
-                    class="btn float-right login_btn"
-                  />
-                </div>
-              </form>
-            </div>
-            <div class="card-footer">
-              <div class="d-flex justify-content-center links">
-                Don't have an account?
-                <a href="#">Sign Up</a>
-              </div>
-              <div class="d-flex justify-content-center">
-                <a href="#">
-                  Forgot your password?
-                </a>
+                  >
+                    Register
+                  </button>
+                  <hr class="my-4" />
+
+                  <div class="border-top card-body text-center">
+                    Have an account?
+                    <Link
+                      to="/logIn"
+                      href=""
+                    >
+                      Log In
+                    </Link>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
