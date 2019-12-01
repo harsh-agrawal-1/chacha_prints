@@ -17,13 +17,19 @@ export default function Navbar() {
           <ul className="dropdown-menu">
             <li>
               <Link to="/logIn">
-                <button className="btn">Log In</button>
+                <button className="btn">
+                  Log In
+                </button>
               </Link>
             </li>
-            <li className="divider"><hr/></li>
+            <li className="divider">
+              <hr />
+            </li>
             <li>
               <Link to="/signUp">
-              <button className="btn">Sign Up</button>
+                <button className="btn">
+                  Sign Up
+                </button>
               </Link>
             </li>
           </ul>
