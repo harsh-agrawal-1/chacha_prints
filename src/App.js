@@ -11,6 +11,7 @@ import Footer from './components/footer'
 import LogIn from './components/log_in'
 import SignUp from './components/sign_up'
 import Cart from './components/cart'
+import Checkout from './components/checkout'
 import UserProfile from './components/user_profile'
 import ContactUs from './components/contact'
 import ProductDetails from './components/product_details'
@@ -47,6 +48,10 @@ function App() {
         <Route
           path="/cart"
           component={Cart}
+        ></Route>
+        <Route
+          path="/checkout"
+          component={Checkout}
         ></Route>
         <Route
           path="/details"
