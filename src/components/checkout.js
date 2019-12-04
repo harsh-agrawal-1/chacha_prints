@@ -26,12 +26,20 @@ export default class Checkout extends Component {
 
   render() {
     return (
-      <div>
-        {JSON.stringify(
-          this.state.products
-        ) +
-          ' totalCost = ' +
-          this.state.totalCost}
+      <div className="container">
+        Products are added to billing.
+        <br />
+        <b>
+            Kindly pay ₹{this.state.totalCost} via upi.
+        </b>
+
+
+        <h3> Scan below given QR code to pay.</h3>
+
+        <img className="img-thumbnail"
+            src="https://www.dropbox.com/s/qohwqj3h32nysj1/PhonePe.jpeg?raw=1"
+            alt="Contact on chacha prints for payments.">
+        </img>
       </div>
     )
   }

@@ -11,7 +11,6 @@ import { Link } from 'react-router-dom'
 
 export default class Cart extends Component {
   render() {
-    console.log(cart)
     return (
       <div class="pb-5">
         <div class="container">
@@ -224,11 +223,7 @@ export default class Cart extends Component {
                           handling
                         </strong>
                         <strong>
-                          ₹
-                          {cart.totalCost !=
-                          0
-                            ? 100
-                            : 0}
+                          ₹0
                         </strong>
                       </li>
                       <li class="d-flex justify-content-between py-3 border-bottom">
@@ -247,8 +242,7 @@ export default class Cart extends Component {
                           ₹
                           {cart.totalCost !=
                           0
-                            ? cart.totalCost +
-                              100
+                            ? cart.totalCost
                             : 0}
                         </h5>
                       </li>
