@@ -1,17 +1,17 @@
 import React, { Component } from 'react'
-import { cart } from '../data/cart'
+import store from '../store'
 
 export default class Checkout extends Component {
   state = {
-    products: cart.products,
-    totalCost: cart.totalCost,
+    products: store.cart.products,
+    totalCost: store.cart.totalCost,
   }
 
   componentDidMount = () => {
     if (this.props.location.product) {
       let productMap = new Map()
       productMap.set(
-        this.props.location.product,
+        JSON.stringify(this.props.location.product),
         this.props.location.quantity
       )
       this.setState({
@@ -30,16 +30,20 @@ export default class Checkout extends Component {
         Products are added to billing.
         <br />
         <b>
-            Kindly pay ₹{this.state.totalCost} via upi.
+          Kindly pay ₹
+          {this.state.totalCost} via
+          upi.
         </b>
-
-
-        <h3> Scan below given QR code to pay.</h3>
-
-        <img className="img-thumbnail"
-            src="https://www.dropbox.com/s/qohwqj3h32nysj1/PhonePe.jpeg?raw=1"
-            alt="Contact on chacha prints for payments.">
-        </img>
+        <h3>
+          {' '}
+          Scan below given QR code to
+          pay.
+        </h3>
+        <img
+          className="img-thumbnail"
+          src="https://www.dropbox.com/s/qohwqj3h32nysj1/PhonePe.jpeg?raw=1"
+          alt="Contact on chacha prints for payments."
+        ></img>
       </div>
     )
   }

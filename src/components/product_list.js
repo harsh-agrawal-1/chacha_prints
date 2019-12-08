@@ -36,9 +36,7 @@ export default class ProductList extends Component {
                   <CategoryCard
                     key={index}
                     data={dataItem}
-                    type={
-                      this.props.type
-                    }
+                    {...this.props}
                   />
                 )
               }

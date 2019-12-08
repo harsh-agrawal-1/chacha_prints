@@ -2,19 +2,26 @@ import React, {
   Component,
   Fragment,
 } from 'react'
-import {
-  cart,
-  addProduct,
-  removeProduct,
-} from '../data/cart'
 import { Link } from 'react-router-dom'
+import { observer } from 'mobx-react'
+import store from '../store'
 
-export default class Cart extends Component {
+@observer
+class Cart extends Component {
+  componentDidMount = () => {
+    store.deserialize()
+  }
+
   render() {
+    const {
+      cart,
+      removeProduct,
+    } = store
     return (
       <div class="pb-5">
         <div class="container">
-          {cart.products.size != 0 ? (
+          {cart.products &&
+          cart.products.size != 0 ? (
             <Fragment>
               <div class="row">
                 <div class="col-lg-12 p-5 bg-white rounded shadow-sm mb-5">
@@ -64,6 +71,7 @@ export default class Cart extends Component {
                             product,
                             index
                           ) => {
+                            product = JSON.parse(product);
                             return (
                               <tr
                                 key={
@@ -113,7 +121,7 @@ export default class Cart extends Component {
                                 <td class="border-0 align-middle">
                                   <strong>
                                     {cart.products.get(
-                                      product
+                                      JSON.stringify(product)
                                     )}
                                   </strong>
                                 </td>
@@ -123,9 +131,6 @@ export default class Cart extends Component {
                                     class="text-dark"
                                     onClick={event => {
                                       event.stopPropagation()
-                                      console.log(
-                                        event.target
-                                      )
                                       removeProduct(
                                         product
                                       )
@@ -266,3 +271,5 @@ export default class Cart extends Component {
     )
   }
 }
+
+export default Cart

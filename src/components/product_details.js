@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
-import {
-  cart,
-  addProduct,
-} from '../data/cart'
+import store from '../store'
 import { Link } from 'react-router-dom'
 
 export default class ProductDetails extends Component {
@@ -11,15 +8,11 @@ export default class ProductDetails extends Component {
   }
 
   render() {
+    const { addProduct } = store
     const product = this.props.location
       .state.data
     return (
       <div class="super_container">
-        {/* {'details here for ' +
-          JSON.stringify(
-            this.props.location.state
-              .data
-          )} */}
         <div class="single_product">
           <div
             class="container-fluid"
@@ -315,18 +308,10 @@ export default class ProductDetails extends Component {
                         type="button"
                         class="btn btn-primary shop-button"
                         onClick={() => {
-                          console.log(
-                            'cart before ',
-                            cart
-                          )
                           addProduct(
                             product,
                             this.state
                               .quantity
-                          )
-                          console.log(
-                            'cart after ',
-                            cart
                           )
                         }}
                       >
