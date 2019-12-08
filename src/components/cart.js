@@ -71,7 +71,9 @@ class Cart extends Component {
                             product,
                             index
                           ) => {
-                            product = JSON.parse(product);
+                            product = JSON.parse(
+                              product
+                            )
                             return (
                               <tr
                                 key={
@@ -121,7 +123,9 @@ class Cart extends Component {
                                 <td class="border-0 align-middle">
                                   <strong>
                                     {cart.products.get(
-                                      JSON.stringify(product)
+                                      JSON.stringify(
+                                        product
+                                      )
                                     )}
                                   </strong>
                                 </td>

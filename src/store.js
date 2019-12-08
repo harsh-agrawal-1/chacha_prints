@@ -3,12 +3,21 @@ import {
   observable,
 } from 'mobx'
 
+class userInfoClass {
+  @observable name
+  @observable mobile
+  @observable address
+  @observable password
+}
+
 class CartClass {
   @observable products = new Map()
   @observable totalCost = 0
 }
 class Store {
   @observable cart = new CartClass()
+  @observable
+  userInfo = new userInfoClass()
 
   addProduct = (product, quantity) => {
     this.deserialize()
@@ -84,6 +93,10 @@ class Store {
       'totalCost',
       this.cart.totalCost
     )
+    localStorage.setItem(
+      'userInfo',
+      JSON.stringify(this.userInfo)
+    )
   }
 
   deserialize = () => {
@@ -113,6 +126,18 @@ class Store {
           'totalCost'
         )
       )
+      const userInfo = JSON.parse(
+        localStorage.getItem('userInfo')
+      )
+      console.log(userInfo)
+      this.userInfo.name =
+        userInfo['name']
+      this.userInfo.mobile =
+        userInfo['mobile']
+      this.userInfo.address =
+        userInfo['address']
+      this.userInfo.password =
+        userInfo['password']
     }
   }
 
@@ -128,5 +153,6 @@ const store = new Store()
 export default store
 
 autorun(() => {
-  console.log('running')
+  console.log('will deserialize here')
+  // store.deserialize()
 })

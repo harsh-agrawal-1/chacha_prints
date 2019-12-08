@@ -1,8 +1,27 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 import '../App.css'
+import store from '../store'
 
 export default class SignUp extends Component {
+  handleSubmit = event => {
+    store.deserialize()
+    store.userInfo.mobile = event
+      .target[0]
+      ? event.target[0].value
+      : null
+    store.userInfo.password = event
+      .target[1]
+      ? event.target[1].value
+      : null
+    store.userInfo.address = event
+      .target[2]
+      ? event.target[2].value
+      : null
+    store.serialize()
+    this.props.history.push('/')
+    window.location.reload(true)
+  }
   render() {
     return (
       <div class="container">
@@ -13,14 +32,19 @@ export default class SignUp extends Component {
                 <h5 class="card-title text-center">
                   Sign Up
                 </h5>
-                <form class="form-signin">
+                <form
+                  class="form-signin"
+                  onSubmit={
+                    this.handleSubmit
+                  }
+                >
                   <div class="form-label-group">
                     <input
                       type="tel"
                       id="inputTel"
                       class="form-control"
                       placeholder="Mobile Number"
-                      pattern="[0-9]{11}"
+                      pattern="[0-9]{10}[0-9]?"
                       required
                       autofocus
                     />
@@ -61,16 +85,6 @@ export default class SignUp extends Component {
                     Register
                   </button>
                   <hr class="my-4" />
-
-                  <div class="border-top card-body text-center">
-                    Have an account?
-                    <Link
-                      to="/logIn"
-                      href=""
-                    >
-                      Log In
-                    </Link>
-                  </div>
                 </form>
               </div>
             </div>

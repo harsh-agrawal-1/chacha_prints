@@ -11,7 +11,9 @@ export default class Checkout extends Component {
     if (this.props.location.product) {
       let productMap = new Map()
       productMap.set(
-        JSON.stringify(this.props.location.product),
+        JSON.stringify(
+          this.props.location.product
+        ),
         this.props.location.quantity
       )
       this.setState({

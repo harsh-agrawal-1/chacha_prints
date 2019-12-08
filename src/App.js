@@ -34,7 +34,7 @@ function App() {
           )}
         ></Route>
         <Route
-          path="/userProfile"
+          path="/userInfo"
           component={UserProfile}
         ></Route>
         <Route
