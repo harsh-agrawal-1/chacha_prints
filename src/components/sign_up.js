@@ -1,26 +1,30 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import '../App.css'
-import store from '../store'
 
 export default class SignUp extends Component {
   handleSubmit = event => {
-    store.deserialize()
-    store.userInfo.mobile = event
-      .target[0]
-      ? event.target[0].value
-      : null
-    store.userInfo.password = event
-      .target[1]
-      ? event.target[1].value
-      : null
-    store.userInfo.address = event
-      .target[2]
-      ? event.target[2].value
-      : null
-    store.serialize()
-    this.props.history.push('/')
-    window.location.reload(true)
+    event.preventDefault();
+    var userInfo = {
+      "mobile":[`${event.target[0] ? event.target[0].value:null}`],
+      "name":`${event.target[1] ? event.target[1].value:null}`,
+      "address":`${event.target[2] ? event.target[2].value:null}`,
+    };
+
+    console.log(userInfo);
+    fetch('https://boiling-falls-20751.herokuapp.com/api/customer/', {
+      method: "POST",
+      body: JSON.stringify(userInfo),
+      headers:{ 
+        "Content-type": "application/json; charset=UTF-8"
+      } 
+    })
+    .then(res => res.json())
+    .then(res => console.log(res))
+    .catch(err => console.log("Error ", err));
+
+    // this.props.history.push('/')
+    // window.location.reload(true)
   }
   render() {
     return (
@@ -55,14 +59,14 @@ export default class SignUp extends Component {
 
                   <div class="form-label-group">
                     <input
-                      type="password"
-                      id="inputPassword"
+                      type="text"
+                      id="name"
                       class="form-control"
-                      placeholder="Password"
+                      placeholder="Name"
                       required
                     />
-                    <label for="inputPassword">
-                      Password
+                    <label for="name">
+                      Name
                     </label>
                   </div>
                   <div class="form-label-group">

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import '../App.css'
-import store from '../store'
 import { observer } from 'mobx-react'
 
 @observer
