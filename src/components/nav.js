@@ -19,12 +19,21 @@ class Navbar extends Component {
               <i class="fas fa-user-circle pull-right"></i>
             </Link>
           ) : (
-            <Link to="/signUp">
-              <i class="fas fa-user-plus pull-right">
-                {' '}
-                Sign Up
-              </i>
-            </Link>
+            <span>
+              <Link to="/logIn">
+                <i class="fas fa-user-plus pull-right">
+                  {' '}
+                  Log In
+                </i>
+              </Link>
+              &ensp;{'  /  '}&ensp;
+              <Link to="/signUp">
+                <i class="fas fa-user-plus pull-right">
+                  {' '}
+                  Sign Up
+                </i>
+              </Link>
+            </span>
           )}
           <Link to="/cart">
             <button

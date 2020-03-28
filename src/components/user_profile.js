@@ -2,9 +2,29 @@ import React, { Component } from 'react'
 import store from '../store'
 
 export default class UserProfile extends Component {
+
+  state = {
+    userInfo : {}
+  };
+  
+  componentWillMount = () => {
+    const userId = localStorage.getItem("userInfo");
+    console.log(userId);
+    fetch(`https://stormy-sea-40558.herokuapp.com/https://boiling-falls-20751.herokuapp.com/api/customer/${userId}`)
+    .then(res => res.json())
+    .then(res => {
+      this.setState({userInfo: { ...res, userId}});
+    })
+    .catch(err => {
+      console.log("error occured while fetching customer details", err);
+      localStorage.removeItem("userInfo");
+      this.props.history.push('/');
+      window.location.reload(true);
+    });
+  }
+  
   render() {
-    store.deserialize()
-    const { userInfo } = store
+    const { userInfo } = this.state;
     return (
       <div className="container">
         <div class="row">
@@ -44,28 +64,12 @@ export default class UserProfile extends Component {
                           'bold',
                       }}
                     >
-                      Birth Date
-                    </label>
-                  </div>
-                  <div class="col-md-8 col-6">
-                    {userInfo.birthdate}
-                  </div>
-                </div>
-                <hr />
-
-                <div class="row">
-                  <div class="col-sm-3 col-md-2 col-5">
-                    <label
-                      style={{
-                        fontWeight:
-                          'bold',
-                      }}
-                    >
                       Mobile Number
                     </label>
                   </div>
                   <div class="col-md-8 col-6">
-                    {userInfo.mobile}
+                    {userInfo.mobile && Array.isArray(userInfo.mobile) 
+                      && userInfo.mobile.map((mob) => `${mob}  `)}
                   </div>
                 </div>
                 <hr />
@@ -85,7 +89,17 @@ export default class UserProfile extends Component {
                   </div>
                 </div>
                 <hr />
-                <div></div>
+                <button
+                    class="btn btn-lg btn-primary btn-block text-uppercase"
+                    onClick={() => {
+                      localStorage.removeItem("userInfo");
+                      this.props.history.push('/');
+                      window.location.reload(true);
+                    }}
+                    type="button"
+                  >
+                    Sign Out
+                  </button>
               </div>
             </div>
           </div>
