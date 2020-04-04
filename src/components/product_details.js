@@ -24,21 +24,21 @@ export default class ProductDetails extends Component {
             <div class="row">
               <div class="col-lg-2 order-lg-1 order-2">
                 <ul class="image_list">
-                  <li data-image="https://res.cloudinary.com/dxfq3iotg/image/upload/v1565713229/single_4.jpg">
+                  <li data-image={product.imgUrl}>
                     <img
-                      src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1565713229/single_4.jpg"
+                      src={product.imgUrl}
                       alt=""
                     />
                   </li>
-                  <li data-image="https://res.cloudinary.com/dxfq3iotg/image/upload/v1565713228/single_2.jpg">
+                  <li data-image={product.imgUrl}>
                     <img
-                      src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1565713228/single_2.jpg"
+                      src={product.imgUrl}
                       alt=""
                     />
                   </li>
-                  <li data-image="https://res.cloudinary.com/dxfq3iotg/image/upload/v1565713228/single_3.jpg">
+                  <li data-image={product.imgUrl}>
                     <img
-                      src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1565713228/single_3.jpg"
+                      src={product.imgUrl}
                       alt=""
                     />
                   </li>
